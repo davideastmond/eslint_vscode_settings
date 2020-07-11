@@ -30,5 +30,16 @@
       "name": "Run current file",
       "program": "${file}"
     }
+    // For typescript debug the currently opened ts file
+    {
+        "name": "Current TS File",
+        "type": "node",
+        "request": "launch",
+        "args": ["${file}"],
+        "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+        "sourceMaps": true,
+        "cwd": "${workspaceRoot}/server", // The server was in a subfolder of the root
+        "protocol": "inspector",
+      }
   ]
 }
